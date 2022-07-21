@@ -16,32 +16,51 @@ python -m venv school-lib
 
 ### 2. Activate the virtual env
 cd into the directory that was created when we ran the last command and activate the virtual env.
-```cd school-lib```
-```source bin/activate```
+```
+cd school-lib
+```
+```
+source bin/activate
+```
 
 ### 3. Install requirements
 
 We'll install all app dependancies in the requirements.txt file
 *You may have noticed that we're using DJango 3.2. That's because some 3rd-party packages are still not updated to use Django >= 4.0, so we'll use Django 3.2 instead.*
 
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 
 ### 4. Load some data for testing
 Some test data has already been provided so we can use those straight out of the box for testing.
 *If the test data is insufficient, you can always add more from the shell by running ```python manage.py shell```.*
 
 In order to load the test data, run the command below in the terminal:
-```python manage.py loaddata users_seed.json```
-```python manage.py loaddata books_seed.json```
+```
+python manage.py loaddata users_seed.json
+```
+```
+python manage.py loaddata books_seed.json
+```
 
 You should get the same two outputs as below:
-```$ Installed 4 object(s) from 1 fixture(s)```
+```
+$ Installed 4 object(s) from 1 fixture(s)
+```
 
 ### 5. Start the development server
-Start the development server by running ```python manage.py runserver```
+Start the development server by running: 
+```
+python manage.py runserver
+```
 
 ### 6. Play around with the GraphQL API
-Now we're ready for the fun stuff. We can start querying the GraphQL API by navigating to ```http://localhost:8000/graphql/```. This will open up the Graph*i*QL interface.
+Now we're ready for the fun stuff. We can start querying the GraphQL API by navigating to 
+```
+http://localhost:8000/graphql/
+``` 
+This will open up the Graph*i*QL interface.
 
 On the left hand-side of the screen will be where we'll type our GraphQL query, and the output will be displayed to us on the right=hand side of the screen.
 
@@ -382,3 +401,5 @@ You should now get a response depending on the number of times you've ran the `b
   }
 }
 ```
+
+And that should be it! Thanks.
