@@ -1,0 +1,78 @@
+[
+    {
+        "model": "users.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$ziGRD7RsyW7Qw70XnpyMir$uBVqPQciJ2xVcKg2rWluODlhQ/4/+rh6gUyRdNNoL6Y=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "student1",
+            "first_name": "Matt",
+            "last_name": "Bellamy",
+            "email": "matt.bellamy@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-07-21T02:48:21.769Z",
+            "role": "student",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 2,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$NEauMKvqfNQjvWXWocVAuc$Pc3542ibhZX24MYof6Hso/PXNBpSUgLOBZV6w/GC53Y=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "student2",
+            "first_name": "Lisa",
+            "last_name": "Goodward",
+            "email": "lisa.goodward@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-07-21T02:48:58.405Z",
+            "role": "student",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 3,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$7IZVefeGMevLRv02swagLo$3JeS6FKXgcsUr8Z/VP4PDdZH81Y8htjqGv20J3cP7QU=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "student3",
+            "first_name": "Tony",
+            "last_name": "Streak",
+            "email": "tony.streak@example.com",
+            "is_staff": false,
+            "is_active": true,
+            "date_joined": "2022-07-21T02:49:29.644Z",
+            "role": "student",
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "users.user",
+        "pk": 4,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$CtQfbNyCMJ38OkzD64iaKu$7UksJL8OEbAzucGLeGvUcoNfnXq8hGqpW0JZvkF7YH4=",
+            "last_login": null,
+            "is_superuser": false,
+            "username": "librarian1",
+            "first_name": "Misty",
+            "last_name": "Paige",
+            "email": "misty.page@example.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2022-07-21T02:50:36.996Z",
+            "role": "librarian",
+            "groups": [],
+            "user_permissions": []
+        }
+    }
+]

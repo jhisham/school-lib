@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+from datetime import timedelta
 from pathlib import Path
 
 import environ
@@ -50,20 +51,11 @@ INSTALLED_APPS = [
     # third-party apps
     'corsheaders',
     'graphene_django',
-    'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
-    'graphql_auth',
     'django_filters',
     
     # local apps
     'users',
     'books',
-]
-
-# custom backend implementation using JWT
-# https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
-AUTHENTICATION_BACKENDS = [
-    'graphql_auth.backends.GraphQLAuthBackend',
-    'django.contrib.auth.backends.ModelBackend',
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#auth-user-model
@@ -164,11 +156,18 @@ CORS_ALLOWED_ORIGINS = [
 if settings.DEBUG:
     CORS_ALLOW_ALL_ORIGINS = True
     
+# custom backend implementation using JWT
+# https://docs.djangoproject.com/en/dev/ref/settings/#authentication-backends
+AUTHENTICATION_BACKENDS = [
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+    
 # graphene-django - https://github.com/graphql-python/graphene-django/blob/master/docs/settings.rst
 # for authentication and authorization - https://django-graphql-auth.readthedocs.io/en/latest/quickstart/
 GRAPHENE = {
     'SCHEMA': 'school_library.schema.schema',
-    'ATOMIC_MUTATIONS': True,
+    # 'ATOMIC_MUTATIONS': True,
     'MIDDLEWARE': [
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ]
@@ -177,17 +176,5 @@ GRAPHENE = {
 # https://django-graphql-jwt.domake.io/quickstart.html
 GRAPHQL_JWT = {
     'JWT_VERIFY_EXPIRATION': True,
-    'JWT_ALLOW_ANY_CLASSES': [
-        # add classes here to bypass authentication for certain types of requests
-        'graphql_auth.mutations.Register',
-        'graphql_auth.mutations.VerifyAccount',
-        'graphql_auth.mutations.ResendActivationEmail',
-        'graphql_auth.mutations.SendPasswordResetEmail',
-        'graphql_auth.mutations.PasswordReset',
-        'graphql_auth.mutations.ObtainJSONWebToken',
-        'graphql_auth.mutations.VerifyToken',
-        'graphql_auth.mutations.RefreshToken',
-        'graphql_auth.mutations.RevokeToken',
-        'graphql_auth.mutations.VerifySecondaryEmail',
-    ],
+    'JWT_EXPIRATION_DATA': timedelta(minutes=30),
 }
