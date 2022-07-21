@@ -26,7 +26,7 @@ source bin/activate
 ### 3. Install requirements
 
 We'll install all app dependancies in the requirements.txt file
-*You may have noticed that we're using DJango 3.2. That's because some 3rd-party packages are still not updated to use Django >= 4.0, so we'll use Django 3.2 instead.*
+*You may have noticed that we're using Django 3.2. That's because some 3rd-party packages are still not updated to use Django >= 4.0, so we'll use Django 3.2 instead.*
 
 ```
 pip install -r requirements.txt
