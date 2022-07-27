@@ -207,3 +207,7 @@ GRAPHQL_JWT = {
     'JWT_VERIFY_EXPIRATION': True,
     'JWT_EXPIRATION_DATA': timedelta(minutes=30),
 }
+
+# settings for production
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
