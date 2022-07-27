@@ -19,7 +19,7 @@ from django.views.decorators.csrf import csrf_exempt
 from graphene_django.views import GraphQLView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
     # a single graphql endpoint is all we need for frontends to query the backend
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]
