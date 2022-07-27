@@ -34,6 +34,9 @@ SECRET_KEY = env.str('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=False)
 
+# Environment selection
+ENVIRONMENT = env.str('ENVIRONMENT', default='local')
+
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=['localhost', '127.0.0.1'])
 
 
@@ -99,20 +102,24 @@ WSGI_APPLICATION = 'school_library.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
-    'heroku': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': env.str('DATABASE_NAME'),
-        'USER': env.str('DATABASE_USER'),
-        'PASSWORD': env.str('DATABASE_PASSWORD'),
-        'HOST': env.str('DATABASE_HOST'),
-        'PORT': env.str('DATABASE_PORT'),
-    },
-}
+if ENVIRONMENT == 'local':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        },
+    }
+elif ENVIRONMENT == 'production':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': env.str('DATABASE_NAME'),
+            'USER': env.str('DATABASE_USER'),
+            'PASSWORD': env.str('DATABASE_PASSWORD'),
+            'HOST': env.str('DATABASE_HOST'),
+            'PORT': env.str('DATABASE_PORT'),
+        },
+    }
 
 
 # Password validation
