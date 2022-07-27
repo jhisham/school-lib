@@ -118,6 +118,7 @@ elif ENVIRONMENT == 'production':
             'PASSWORD': env.str('DATABASE_PASSWORD'),
             'HOST': env.str('DATABASE_HOST'),
             'PORT': env.str('DATABASE_PORT'),
+            'DATABASE_URL': env.str('DATABASE_URL'),
         },
     }
 
