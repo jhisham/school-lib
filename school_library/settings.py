@@ -178,8 +178,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # add or edit as necessary
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # for use with frontends like vue or svelte
+    'http://localhost:3001',  # for use with frontends like vue or svelte
     'http://127.0.0.1:3000',  # for use with frontends like vue or svelte
-    'https://glacial-ocean-93602.herokuapp.com/graphql/',
+    'http://127.0.0.1:3001',  # for use with frontends like vue or svelte
 ]
 
 # only used for debugging and during development
@@ -210,10 +211,11 @@ GRAPHQL_JWT = {
 }
 
 # settings for production
-SESSION_COOKIE_SECURE = True
+if ENVIRONMENT == 'production':
+    SESSION_COOKIE_SECURE = True
 
-CSRF_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
-SECURE_HSTS_SECONDS = 36000
+    SECURE_HSTS_SECONDS = 36000
 
-SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = True
