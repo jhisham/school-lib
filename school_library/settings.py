@@ -179,6 +179,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # for use with frontends like vue or svelte
     'http://127.0.0.1:3000',  # for use with frontends like vue or svelte
+    'https://glacial-ocean-93602.herokuapp.com/graphql/',
 ]
 
 # only used for debugging and during development
